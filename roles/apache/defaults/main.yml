@@ -1,0 +1,9 @@
+---
+# defaults file for apacheRole
+enable_apache_lb: false
+load_balancer_is_required: false
+
+# DNS mapping for webservers
+web1: 10.0.31.242 
+web2: 10.0.27.43
+
