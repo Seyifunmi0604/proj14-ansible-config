@@ -6,8 +6,6 @@
     name: nginx
     state: present
 
-
-
 - name: start nginx
   become: yes
   service:
@@ -20,7 +18,6 @@
      path: /etc/nginx/nginx.conf
      block: "{{ lookup('file', '../templates/nginx.conf' ) }}"
      insertafter: "http {"
-
 
 - name: Comment out site-enabled
   become: yes
