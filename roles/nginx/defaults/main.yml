@@ -6,8 +6,8 @@ load_balancer_is_required: false
 #IP mapping for webservers
 
 # DNS mapping for webservers
-web1: 10.0.22.222
-web2: 10.0.23.196
+web1: 10.0.31.242
+web2: 10.0.27.43
 
 # DNS mapping for uat-webservers
 #web1: 10.0.31.242 

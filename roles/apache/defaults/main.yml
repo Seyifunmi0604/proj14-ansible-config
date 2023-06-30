@@ -4,10 +4,14 @@ enable_apache_lb: false
 load_balancer_is_required: false
 
 # DNS mapping for webservers
-web1: 10.0.22.222
-web2: 10.0.23.196
+web1: 10.0.31.242
+web2: 10.0.27.43
+
+#web1: 10.0.26.134
+#web2: 10.0.25.184
 
 # DNS mapping for uat-webservers
 #web1: 10.0.31.242 
 #web2: 10.0.27.43
+
 
