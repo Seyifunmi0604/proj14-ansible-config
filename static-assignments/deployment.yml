@@ -79,8 +79,7 @@
         name: httpd
         state: restarted
 
-<<<<<<< HEAD
         
-=======
+
         
->>>>>>> refs/remotes/origin/main
+
