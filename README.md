@@ -47,6 +47,9 @@ source ~/.bash_profile
 - curl -sS https://getcomposer.org/installer | php 
 - sudo mv composer.phar /usr/bin/composer
 
+composer require --dev phpunit/phpunit ^6
+./vendor/bin/phpunit --version
+
 ##### Verify Composer is installed or not
 - composer --version
 
@@ -57,6 +60,25 @@ source ~/.bash_profile
 - wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
 - chmod +x phpunit
 - sudo yum  install php-xdebug
+
+#### Install phpunit, phploc
+============================
+sudo dnf --enablerepo=remi install php-phpunit-phploc
+wget -O phpunit https://phar.phpunit.de/phpunit-6.phar
+chmod +x phpunit
+./phpunit --version
+sudo yum  install php-xdebug
+
+### To remove phpunit, phploc
+=============================
+sudo dnf remove php-phpunit-phploc
+sudo dnf autoremove
+rm phpunit
+
+### To check other packages that depends phpunit, phploc
+========================================================
+sudo dnf repoquery --whatrequires php-phpunit-phploc
+
 
 #### for database connection
 ====================================
