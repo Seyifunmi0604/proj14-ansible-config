@@ -50,7 +50,7 @@
 
     - name: Download the artifact
       get_url:
-        url: http://54.160.9.163:8082/artifactory/PBL/php-todo
+        url: http://44.204.175.162:8082/artifactory/PBL/php-todo
         dest: /home/ec2-user/
         url_username: admin
         url_password: cmVmdGtuOjAxOjE3MjA5MjgxODU6dWJLVnJnM1d4UXZ6WDBxT29IdWdxdFdITTc1
