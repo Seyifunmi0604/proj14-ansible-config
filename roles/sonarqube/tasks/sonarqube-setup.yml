@@ -34,19 +34,34 @@
     path: /opt/sonarqube-7.9.3.zip
     state: absent
 
+- name: Check if the sonar user exists
+  ansible.builtin.shell: id -u sonar
+  register: sonar_user_check
+  ignore_errors: yes
+
 - name: add user to run sonar
-  ansible.builtin.shell: useradd -c "user to run SonarQube" -d /opt/sonarqube -g sonar sonar 
+  ansible.builtin.user:
+    name: sonar
+    comment: "user to run SonarQube"
+    home: /opt/sonarqube
+    group: sonar
+    state: present
+  when: sonar_user_check.rc != 0
 
 - name: change ownership
-  ansible.builtin.shell: chown sonar:sonar /opt/sonarqube -R
-    
+  ansible.builtin.file:
+    path: /opt/sonarqube
+    owner: sonar
+    group: sonar
+    recurse: yes
+
 - name: Configuring the SonarQube Server
   ansible.builtin.template:
     src: templates/sonar.properties.j2
     dest: /opt/sonarqube/conf/sonar.properties
     force: yes
 
-- name: Update user in sonar.sh filee
+- name: Update user in sonar.sh file
   ansible.builtin.lineinfile:
     path: /opt/sonarqube/bin/linux-x86-64/sonar.sh
     regexp: '^#RUN_AS_USER='
@@ -59,3 +74,5 @@
     src: templates/sonarqube.service.j2
     dest:  /etc/systemd/system/sonar.service
     force: yes
+
+
